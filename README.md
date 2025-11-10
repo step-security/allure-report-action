@@ -27,7 +27,7 @@ Default `gh-pages`
 
 ```yaml
 - name: Get Allure history
-  uses: actions/checkout@v2
+  uses: actions/checkout@v5
   if: always()
   continue-on-error: true
   with:
