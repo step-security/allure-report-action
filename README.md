@@ -2,7 +2,7 @@
 
 Generates Allure Report with history.
 
-Example workflow file [allure-report](https://github.com/step-security/allure-report-action/blob/master/.github/workflows/allure-report.yml)
+Example workflow file [allure-report](https://github.com/step-security/allure-report-action/blob/main/.github/workflows/allure-report.yml)
 
 ## Inputs
 
