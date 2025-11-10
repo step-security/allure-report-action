@@ -30,6 +30,12 @@ GITHUB_PAGES_WEBSITE_URL="https://${INPUT_GITHUB_REPO_OWNER}.github.io/${REPOSIT
 #echo "Github pages url $GITHUB_PAGES_WEBSITE_URL"
 
 if [[ ${INPUT_SUBFOLDER} != '' ]]; then
+    # Validate INPUT_SUBFOLDER to prevent path traversal
+    if [[ "$INPUT_SUBFOLDER" =~ \.\./|^/ ]]; then
+        echo "Invalid subfolder path: cannot contain ../ or start with /";
+        exit 1;
+    fi
+    
     INPUT_ALLURE_HISTORY="${INPUT_ALLURE_HISTORY}/${INPUT_SUBFOLDER}"
     INPUT_GH_PAGES="${INPUT_GH_PAGES}/${INPUT_SUBFOLDER}"
     echo "NEW allure history folder ${INPUT_ALLURE_HISTORY}"
@@ -46,6 +52,13 @@ fi
 COUNT=$( ( ls ./${INPUT_ALLURE_HISTORY} | wc -l ) )
 echo "count folders in allure-history: ${COUNT}"
 echo "keep reports count ${INPUT_KEEP_REPORTS}"
+
+# Validate INPUT_KEEP_REPORTS to prevent shell injection
+if ! [[ "$INPUT_KEEP_REPORTS" =~ ^[0-9]+$ ]]; then 
+    echo "Invalid keep_reports value: must be a positive integer"; 
+    exit 1; 
+fi
+
 INPUT_KEEP_REPORTS=$((INPUT_KEEP_REPORTS+1))
 echo "if ${COUNT} > ${INPUT_KEEP_REPORTS}"
 if (( COUNT > INPUT_KEEP_REPORTS )); then
