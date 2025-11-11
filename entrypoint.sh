@@ -18,6 +18,9 @@ else
   echo "Timeout or API not reachable. Continuing to next step."
 fi
 
+# Disable Allure analytics
+export ALLURE_NO_ANALYTICS=1
+
 unset JAVA_HOME
 
 mkdir -p ./${INPUT_GH_PAGES}

@@ -91,29 +91,3 @@ Default ``
     github_repo: your-org/allure-reports-host-server
     github_repo_owner: your-org
 ```
-
-## Finally you need to publish on GitHub Pages
-
-```yaml
-- name: Deploy report to Github Pages
-  if: always()
-  uses: peaceiris/actions-gh-pages@v2
-  env:
-    PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    PUBLISH_BRANCH: gh-pages
-    PUBLISH_DIR: allure-history
-```
-
-## Also you can post the link to the report in the checks section
-
-```yaml
-- name: Post the link to the report
-  if: always()
-  uses: Sibz/github-status-action@v1
-  with: 
-      authToken: ${{secrets.GITHUB_TOKEN}}
-      context: 'Test report'
-      state: 'success'
-      sha: ${{ github.event.pull_request.head.sha }}
-      target_url: step-security.github.io/github-allure-history/${{ github.run_number }}
-```
