@@ -62,4 +62,4 @@ inputs:
     required: false
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://ghcr.io/step-security/allure-report-action:v1.13.0@sha256:9e14203c3d4157f15950703fdcd49f54a01b19effc83d9b2601022541cc8f1e9' #v1.13.0
