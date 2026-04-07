@@ -1,6 +1,6 @@
-FROM public.ecr.aws/amazoncorretto/amazoncorretto:8@sha256:bf56d8f8d18ab38d8e35cfd600fc39a4ba7f4eda05a9f77e531e3a3be9827368
+FROM public.ecr.aws/amazoncorretto/amazoncorretto:8@sha256:8634d52afc2911298d757645c92775fc17b49c362c2d6d44d324e020b2a6b212
 
-ARG RELEASE=2.35.1
+ARG RELEASE=2.38.1
 ARG ALLURE_REPO=https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline
 
 RUN echo $RELEASE && \
