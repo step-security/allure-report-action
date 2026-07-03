@@ -1,0 +1,18 @@
+{
+   "schema_version": "1",
+   "onboarding_type": "copied",
+   "archived": false,
+   "maintained_action_name": "step-security/allure-report-action",
+   "upstream_full_repo_name": "simple-elf/allure-report-action",
+   "action_type": "docker",
+   "last_release": {
+     "tag_name": "v1.13.2",
+     "created_at": "2026-04-10T09:15:04Z",
+     "published_at": "2026-04-13T05:25:49Z"
+   },
+   "sync": {
+     "ignore_presets": [
+       "defaults_v1"
+     ]
+   }
+ }
